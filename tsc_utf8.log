@@ -1,0 +1,6 @@
+src/screens/auth/BiometricSetupScreen.tsx(50,26): error TS2783: 'fontWeight' is specified more than once, so this usage will be overwritten.
+src/screens/auth/EmailEntryScreen.tsx(60,26): error TS2783: 'fontWeight' is specified more than once, so this usage will be overwritten.
+src/screens/auth/LockScreen.tsx(82,43): error TS2783: 'fontWeight' is specified more than once, so this usage will be overwritten.
+src/screens/auth/OTPVerifyScreen.tsx(79,26): error TS2783: 'fontWeight' is specified more than once, so this usage will be overwritten.
+src/screens/auth/PhoneEntryScreen.tsx(87,26): error TS2783: 'fontWeight' is specified more than once, so this usage will be overwritten.
+src/screens/auth/SetPinScreen.tsx(106,26): error TS2783: 'fontWeight' is specified more than once, so this usage will be overwritten.

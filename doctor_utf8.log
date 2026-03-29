@@ -1,0 +1,47 @@
+﻿node.exe : - Running 
+diagnostics...
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (- Running dia   
+ gnostics...:String    
+) [], RemoteExcept    
+ion
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+Common
+ Γ£ô Node.js - Required to execute JavaScript code
+ Γ£ô npm - Required to install NPM dependencies
+ ΓùÅ Metro - Metro Bundler is not running
+
+Android
+ Γ£û Adb - No devices and/or emulators connected. Please create emulator with Android Studio or connect Android device.
+ Γ£û JDK - Required to compile Java code
+   - Version found: 21.0.8
+   - Version supported: >= 17 <= 20
+ Γ£ô Android Studio - Required for building and installing your app on Android
+ Γ£û ANDROID_HOME - Environment variable that points to your Android SDK installation
+ Γ£ô Gradlew - Build tool required for Android builds
+ Γ£û Android SDK - Required for building and installing your app on Android
+   - Versions found: 36.1.0, 37.0.0
+   - Version supported: 34.0.0
+
+Errors:   4
+Warnings: 1
+
+Usage
+ ΓÇ║ Press f to try to fix issues.
+ ΓÇ║ Press e to try to fix errors.
+ ΓÇ║ Press w to try to fix warnings.
+ ΓÇ║ Press Enter to exit.

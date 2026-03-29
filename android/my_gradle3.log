@@ -1,0 +1,250 @@
+> Task :gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors
+> Task :gradle-plugin:react-native-gradle-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:react-native-gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:jar UP-TO-DATE
+
+> Configure project :react-native-reanimated
+Android gradle plugin: 8.2.1
+Gradle: 8.6
+
+> Task :app:generateCodegenSchemaFromJavaScript SKIPPED
+> Task :app:generateCodegenArtifactsFromSchema SKIPPED
+> Task :app:generatePackageList
+> Task :app:preBuild
+> Task :app:preDebugBuild
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-background-fetch:preBuild UP-TO-DATE
+> Task :react-native-background-fetch:preDebugBuild UP-TO-DATE
+> Task :react-native-background-fetch:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-biometrics:preBuild UP-TO-DATE
+> Task :react-native-biometrics:preDebugBuild UP-TO-DATE
+> Task :react-native-biometrics:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-community_netinfo:preBuild UP-TO-DATE
+> Task :react-native-community_netinfo:preDebugBuild UP-TO-DATE
+> Task :react-native-community_netinfo:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-document-picker:preBuild UP-TO-DATE
+> Task :react-native-document-picker:preDebugBuild UP-TO-DATE
+> Task :react-native-document-picker:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-encrypted-storage:preBuild UP-TO-DATE
+> Task :react-native-encrypted-storage:preDebugBuild UP-TO-DATE
+> Task :react-native-encrypted-storage:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-gesture-handler:preBuild UP-TO-DATE
+> Task :react-native-gesture-handler:preDebugBuild UP-TO-DATE
+> Task :react-native-gesture-handler:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-haptic-feedback:preBuild UP-TO-DATE
+> Task :react-native-haptic-feedback:preDebugBuild UP-TO-DATE
+> Task :react-native-haptic-feedback:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-keychain:preBuild UP-TO-DATE
+> Task :react-native-keychain:preDebugBuild UP-TO-DATE
+> Task :react-native-keychain:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-reanimated:assertLatestReactNativeWithNewArchitectureTask SKIPPED
+> Task :react-native-reanimated:assertMinimalReactNativeVersionTask SKIPPED
+> Task :react-native-reanimated:prepareHeadersForPrefab UP-TO-DATE
+> Task :react-native-reanimated:preBuild UP-TO-DATE
+> Task :react-native-reanimated:preDebugBuild UP-TO-DATE
+> Task :react-native-reanimated:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-safe-area-context:preBuild UP-TO-DATE
+> Task :react-native-safe-area-context:preDebugBuild UP-TO-DATE
+> Task :react-native-safe-area-context:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-screens:preBuild UP-TO-DATE
+> Task :react-native-screens:preDebugBuild UP-TO-DATE
+> Task :react-native-screens:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-vector-icons:preBuild UP-TO-DATE
+> Task :react-native-vector-icons:preDebugBuild UP-TO-DATE
+> Task :react-native-vector-icons:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-webview:preBuild UP-TO-DATE
+> Task :react-native-webview:preDebugBuild UP-TO-DATE
+> Task :react-native-webview:writeDebugAarMetadata UP-TO-DATE
+> Task :realm:preBuild UP-TO-DATE
+> Task :realm:preDebugBuild UP-TO-DATE
+> Task :realm:writeDebugAarMetadata UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :react-native-background-fetch:generateDebugResValues UP-TO-DATE
+> Task :react-native-background-fetch:generateDebugResources UP-TO-DATE
+> Task :react-native-background-fetch:packageDebugResources UP-TO-DATE
+> Task :react-native-biometrics:generateDebugResValues UP-TO-DATE
+> Task :react-native-biometrics:generateDebugResources UP-TO-DATE
+> Task :react-native-biometrics:packageDebugResources UP-TO-DATE
+> Task :react-native-community_netinfo:generateDebugResValues UP-TO-DATE
+> Task :react-native-community_netinfo:generateDebugResources UP-TO-DATE
+> Task :react-native-community_netinfo:packageDebugResources UP-TO-DATE
+> Task :react-native-document-picker:generateDebugResValues UP-TO-DATE
+> Task :react-native-document-picker:generateDebugResources UP-TO-DATE
+> Task :react-native-document-picker:packageDebugResources UP-TO-DATE
+> Task :react-native-encrypted-storage:generateDebugResValues UP-TO-DATE
+> Task :react-native-encrypted-storage:generateDebugResources UP-TO-DATE
+> Task :react-native-encrypted-storage:packageDebugResources UP-TO-DATE
+> Task :react-native-gesture-handler:generateDebugResValues UP-TO-DATE
+> Task :react-native-gesture-handler:generateDebugResources UP-TO-DATE
+> Task :react-native-gesture-handler:packageDebugResources UP-TO-DATE
+> Task :react-native-haptic-feedback:generateDebugResValues UP-TO-DATE
+> Task :react-native-haptic-feedback:generateDebugResources UP-TO-DATE
+> Task :react-native-haptic-feedback:packageDebugResources UP-TO-DATE
+> Task :react-native-keychain:generateDebugResValues UP-TO-DATE
+> Task :react-native-keychain:generateDebugResources UP-TO-DATE
+> Task :react-native-keychain:packageDebugResources UP-TO-DATE
+> Task :react-native-reanimated:generateDebugResValues UP-TO-DATE
+> Task :react-native-reanimated:generateDebugResources UP-TO-DATE
+> Task :react-native-reanimated:packageDebugResources UP-TO-DATE
+> Task :react-native-safe-area-context:generateDebugResValues UP-TO-DATE
+> Task :react-native-safe-area-context:generateDebugResources UP-TO-DATE
+> Task :react-native-safe-area-context:packageDebugResources UP-TO-DATE
+> Task :react-native-screens:generateDebugResValues UP-TO-DATE
+> Task :react-native-screens:generateDebugResources UP-TO-DATE
+> Task :react-native-screens:packageDebugResources UP-TO-DATE
+> Task :react-native-vector-icons:generateDebugResValues UP-TO-DATE
+> Task :react-native-vector-icons:generateDebugResources UP-TO-DATE
+> Task :react-native-vector-icons:packageDebugResources UP-TO-DATE
+> Task :react-native-webview:generateDebugResValues UP-TO-DATE
+> Task :react-native-webview:generateDebugResources UP-TO-DATE
+> Task :react-native-webview:packageDebugResources UP-TO-DATE
+> Task :realm:generateDebugResValues UP-TO-DATE
+> Task :realm:generateDebugResources UP-TO-DATE
+> Task :realm:packageDebugResources UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-background-fetch:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-background-fetch:processDebugManifest UP-TO-DATE
+> Task :react-native-biometrics:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-biometrics:processDebugManifest UP-TO-DATE
+> Task :react-native-community_netinfo:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-community_netinfo:processDebugManifest UP-TO-DATE
+> Task :react-native-document-picker:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-document-picker:processDebugManifest UP-TO-DATE
+> Task :react-native-encrypted-storage:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-encrypted-storage:processDebugManifest UP-TO-DATE
+> Task :react-native-gesture-handler:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-gesture-handler:processDebugManifest UP-TO-DATE
+> Task :react-native-haptic-feedback:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-haptic-feedback:processDebugManifest UP-TO-DATE
+> Task :react-native-keychain:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-keychain:processDebugManifest UP-TO-DATE
+> Task :react-native-reanimated:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-reanimated:processDebugManifest UP-TO-DATE
+> Task :react-native-safe-area-context:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-safe-area-context:processDebugManifest UP-TO-DATE
+> Task :react-native-screens:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-screens:processDebugManifest UP-TO-DATE
+> Task :react-native-vector-icons:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-vector-icons:processDebugManifest UP-TO-DATE
+> Task :react-native-webview:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-webview:processDebugManifest UP-TO-DATE
+> Task :realm:extractDeepLinksDebug UP-TO-DATE
+> Task :realm:processDebugManifest UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :react-native-background-fetch:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-background-fetch:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-background-fetch:generateDebugRFile UP-TO-DATE
+> Task :react-native-biometrics:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-biometrics:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-biometrics:generateDebugRFile UP-TO-DATE
+> Task :react-native-community_netinfo:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-community_netinfo:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-community_netinfo:generateDebugRFile UP-TO-DATE
+> Task :react-native-document-picker:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-document-picker:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-document-picker:generateDebugRFile UP-TO-DATE
+> Task :react-native-encrypted-storage:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-encrypted-storage:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-encrypted-storage:generateDebugRFile UP-TO-DATE
+> Task :react-native-gesture-handler:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-gesture-handler:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-gesture-handler:generateDebugRFile UP-TO-DATE
+> Task :react-native-haptic-feedback:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-haptic-feedback:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-haptic-feedback:generateDebugRFile UP-TO-DATE
+> Task :react-native-keychain:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-keychain:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-keychain:generateDebugRFile UP-TO-DATE
+> Task :react-native-reanimated:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-reanimated:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-reanimated:generateDebugRFile UP-TO-DATE
+> Task :react-native-safe-area-context:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-safe-area-context:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-safe-area-context:generateDebugRFile UP-TO-DATE
+> Task :react-native-screens:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-screens:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-screens:generateDebugRFile UP-TO-DATE
+> Task :react-native-vector-icons:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-vector-icons:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-vector-icons:generateDebugRFile UP-TO-DATE
+> Task :react-native-webview:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-webview:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-webview:generateDebugRFile UP-TO-DATE
+> Task :realm:compileDebugLibraryResources UP-TO-DATE
+> Task :realm:parseDebugLocalResources UP-TO-DATE
+> Task :realm:generateDebugRFile UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :react-native-background-fetch:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-background-fetch:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-background-fetch:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-background-fetch:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-biometrics:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-biometrics:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-biometrics:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-biometrics:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-community_netinfo:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-community_netinfo:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-community_netinfo:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-community_netinfo:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-document-picker:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-document-picker:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-document-picker:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-document-picker:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-encrypted-storage:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-encrypted-storage:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-encrypted-storage:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-encrypted-storage:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-gesture-handler:checkKotlinGradlePluginConfigurationErrors
+> Task :react-native-gesture-handler:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-reanimated:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-reanimated:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-reanimated:packageNdkLibs NO-SOURCE
+
+> Task :react-native-reanimated:compileDebugJavaWithJavac FAILED
+C:\projet\virtusa\Mob App\SafeNest\node_modules\react-native-reanimated\android\src\main\java\com\swmansion\reanimated\ReanimatedModule.java:119: warning: [removal] onCatalystInstanceDestroy() in NativeModule has been deprecated and marked for removal
+  public void onCatalystInstanceDestroy() {
+              ^
+C:\projet\virtusa\Mob App\SafeNest\node_modules\react-native-reanimated\android\src\main\java\com\swmansion\reanimated\ReanimatedModule.java:120: warning: [removal] onCatalystInstanceDestroy() in NativeModule has been deprecated and marked for removal
+    super.onCatalystInstanceDestroy();
+         ^
+C:\projet\virtusa\Mob App\SafeNest\node_modules\react-native-reanimated\android\src\reactNativeVersionPatch\ReanimatedUIManager\latest\com\swmansion\reanimated\layoutReanimation\ReanimatedUIManager.java:103: error: cannot find symbol
+    super.replaceExistingNonRootView(oldTag, newTag);
+         ^
+  symbol: method replaceExistingNonRootView(int,int)
+C:\projet\virtusa\Mob App\SafeNest\node_modules\react-native-reanimated\android\src\reactNativeVersionPatch\ReanimatedUIManager\latest\com\swmansion\reanimated\layoutReanimation\ReanimatedUIManager.java:116: error: cannot find symbol
+    super.removeSubviewsFromContainerWithID(containerTag);
+         ^
+  symbol: method removeSubviewsFromContainerWithID(int)
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors
+2 warnings
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':react-native-reanimated:compileDebugJavaWithJavac'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+BUILD FAILED in 12s
+158 actionable tasks: 5 executed, 153 up-to-date
