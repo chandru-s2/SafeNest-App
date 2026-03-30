@@ -103,7 +103,7 @@ const SetPinScreen = ({ navigation }: any) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.bgLight, padding: 24, paddingTop: 80 },
-  title: { fontSize: 24, color: COLORS.navy, ...FONTS.semibold },
+  title: { ...FONTS.semibold, fontSize: 24, color: COLORS.navy },
   subtitle: { fontSize: 14, color: COLORS.textMuted, marginTop: 8, marginBottom: 40 },
   optionCard: {
     flexDirection: 'row',

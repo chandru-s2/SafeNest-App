@@ -7,30 +7,63 @@ import { formatCurrency } from '../../utils/formatters';
 import Icon from 'react-native-vector-icons/Feather';
 import TransactionItem from '../../components/TransactionItem';
 import OfflineBanner from '../../components/OfflineBanner';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MoreServicesScreen from './MoreServicesScreen';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { MainStackParamList } from '../../navigation/types';
+
+const NEW_COLORS = {
+  Navy: '#0A1931',
+  Blue: '#1565C0',
+  Teal: '#00897B',
+  Amber: '#F59E0B',
+  BgLight: '#F5F7FA',
+  White: '#FFFFFF',
+};
 
 const HomeScreen = () => {
   const { balance, transactions, isOffline } = useSelector((state: RootState) => state.dashboard);
   const { name } = useSelector((state: RootState) => state.profile);
+  const dispatch = useDispatch();
   const [showBalance, setShowBalance] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const [moreSheetVisible, setMoreSheetVisible] = useState(false);
+  const { authToken } = useSelector((state: RootState) => state.auth);
+  const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
 
-  const onRefresh = () => {
-    setRefreshing(true);
-    setTimeout(() => setRefreshing(false), 2000);
+  const fetchDashboard = async () => {
+    try {
+      const api = require('../../services/api').default;
+      const { setBalance, setTransactions } = require('../../app/store/slices/dashboardSlice');
+      const response = await api.get('dashboard');
+      dispatch(setBalance(response.data.balance));
+      dispatch(setTransactions(response.data.transactions));
+    } catch (error) {
+      console.error('Failed to fetch dashboard', error);
+    }
   };
 
-  const ActionButton = ({ icon, label }: any) => (
-    <TouchableOpacity style={styles.actionBtn}>
-      <View style={styles.actionIcon}>
-        <Icon name={icon} size={20} color={COLORS.blue} />
+  React.useEffect(() => {
+    if (authToken) {
+      fetchDashboard();
+    }
+  }, [authToken]);
+
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await fetchDashboard();
+    setRefreshing(false);
+  };
+
+  const QuickActionButton = ({ icon, label, color, onPress }: any) => (
+    <TouchableOpacity style={styles.actionBtn} onPress={onPress}>
+      <View style={[styles.actionIconCircle, { backgroundColor: color }]}>
+        <MaterialIcons name={icon} size={22} color="#FFFFFF" />
       </View>
       <Text style={styles.actionLabel}>{label}</Text>
     </TouchableOpacity>
   );
-
-  function alert(arg0: string) {
-    throw new Error('Function not implemented.');
-  }
 
   return (
     <View style={styles.container}>
@@ -68,11 +101,36 @@ const HomeScreen = () => {
             </View>
 
             <View style={styles.actionsGrid}>
-              <ActionButton icon="send" label="Send" onPress={() => alert('Send')} />
-              <ActionButton icon="download" label="Receive" />
-              <ActionButton icon="credit-card" label="Pay Bills" />
-              <ActionButton icon="grid" label="More" />
+              <QuickActionButton 
+                icon="send" 
+                label="Send" 
+                color={NEW_COLORS.Blue} 
+                onPress={() => navigation.navigate('SendMoney')} 
+              />
+              <QuickActionButton 
+                icon="call-received" 
+                label="Receive" 
+                color={NEW_COLORS.Teal} 
+                onPress={() => navigation.navigate('ReceiveMoney')} 
+              />
+              <QuickActionButton 
+                icon="qr-code-scanner" 
+                label="Scan QR" 
+                color={NEW_COLORS.Amber} 
+                onPress={() => navigation.navigate('QRScanner')} 
+              />
+              <QuickActionButton 
+                icon="apps" 
+                label="More" 
+                color={NEW_COLORS.Navy} 
+                onPress={() => setMoreSheetVisible(true)} 
+              />
             </View>
+
+            <MoreServicesScreen 
+              visible={moreSheetVisible} 
+              onClose={() => setMoreSheetVisible(false)} 
+            />
 
             <Text style={styles.sectionHeader}>Recent activity</Text>
           </>
@@ -125,18 +183,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     marginBottom: 24,
   },
-  actionBtn: { alignItems: 'center' },
-  actionIcon: {
-    width: 56,
-    height: 56,
-    borderRadius: 16,
-    backgroundColor: '#FFF',
+  actionBtn: { flex: 1, alignItems: 'center' },
+  actionIconCircle: {
+    width: 52,
+    height: 52,
+    borderRadius: 26,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 8,
     ...COLORS.shadow,
   },
-  actionLabel: { fontSize: 12, color: COLORS.textPrimary, fontWeight: '500' },
+  actionLabel: { fontSize: 11, color: COLORS.navy, fontWeight: '500' },
   sectionHeader: { fontSize: 16, fontWeight: '600', color: COLORS.navy, marginHorizontal: 16, marginBottom: 12 },
   listContent: { paddingBottom: 100 },
 });

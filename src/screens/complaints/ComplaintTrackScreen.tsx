@@ -1,16 +1,42 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { COLORS, RADIUS } from '../../constants/theme';
 import Icon from 'react-native-vector-icons/Feather';
 import StatusTimeline from '../../components/StatusTimeline';
 
 const ComplaintTrackScreen = ({ route, navigation }: any) => {
   const { id } = route.params;
+  const [loading, setLoading] = React.useState(true);
+  const [complaintData, setComplaintData] = React.useState<any>(null);
 
-  const steps: any[] = [
-    { title: 'Received', timestamp: 'Mar 16, 14:20', description: 'Complaint lodged successfully', status: 'completed' },
-    { title: 'Assigned', timestamp: 'Mar 17, 09:15', description: 'Assigned to nodal officer', status: 'completed' },
-    { title: 'Investigation', timestamp: 'Ongoing', description: 'Internal team is reviewing the transaction', status: 'active' },
+  const fetchTracking = async () => {
+    try {
+      const api = require('../../services/api').default;
+      const response = await api.get(`/complaints/${id}`);
+      setComplaintData(response.data);
+    } catch (error) {
+      console.error('Failed to fetch tracking', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  React.useEffect(() => {
+    fetchTracking();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <View style={[styles.container, { justifyContent: 'center', alignItems: 'center' }]}>
+        <ActivityIndicator size="large" color={COLORS.blue} />
+      </View>
+    );
+  }
+
+  const steps = complaintData?.timeline || [
+    { title: 'Received', timestamp: '...', description: 'Complaint lodged successfully', status: 'completed' },
+    { title: 'Assigned', timestamp: '...', description: 'Assigned to nodal officer', status: 'pending' },
+    { title: 'Investigation', timestamp: '--', description: 'Internal team is reviewing', status: 'pending' },
     { title: 'Resolution', timestamp: '--', description: 'Pending final sign-off', status: 'pending' },
   ];
 

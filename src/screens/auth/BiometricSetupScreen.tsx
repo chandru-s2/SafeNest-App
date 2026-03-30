@@ -47,7 +47,7 @@ const BiometricSetupScreen = () => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.bgLight, padding: 24, paddingTop: 100, alignItems: 'center' },
-  title: { fontSize: 24, color: COLORS.navy, ...FONTS.semibold, textAlign: 'center' },
+  title: { ...FONTS.semibold, fontSize: 24, color: COLORS.navy, textAlign: 'center' },
   subtitle: { fontSize: 14, color: COLORS.textMuted, marginTop: 8, textAlign: 'center', marginBottom: 60 },
   illustration: { width: 200, height: 200, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFF', borderRadius: 100, marginBottom: 80, ...SHADOW.card },
   button: {

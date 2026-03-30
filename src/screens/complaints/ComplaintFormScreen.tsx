@@ -24,17 +24,22 @@ const ComplaintFormScreen = ({ navigation }: any) => {
     }
   };
 
-  const handleSubmit = () => {
-    const newComplaint = {
-      id: Math.random().toString(),
-      complaintId: `SNT-2025-MUM-${Math.floor(100000 + Math.random() * 900000)}`,
-      category,
-      description,
-      status: 'Open' as const,
-      timestamp: new Date().toLocaleString(),
-    };
-    dispatch(addComplaint(newComplaint));
-    navigation.navigate('ComplaintSuccess', { complaintId: newComplaint.complaintId });
+  const handleSubmit = async () => {
+    try {
+      const api = require('../../services/api').default;
+      const response = await api.post('/complaints', {
+        category,
+        description,
+        referenceId: refId,
+      });
+
+      if (response.data.success) {
+        dispatch(addComplaint(response.data.complaint));
+        navigation.navigate('ComplaintSuccess', { complaintId: response.data.complaint.complaintId });
+      }
+    } catch (error) {
+      Toast.show({ type: 'error', text1: 'Error', text2: 'Failed to submit complaint' });
+    }
   };
 
   return (

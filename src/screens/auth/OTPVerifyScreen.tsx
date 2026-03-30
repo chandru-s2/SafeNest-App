@@ -20,7 +20,21 @@ const OTPVerifyScreen = ({ route, navigation }: any) => {
   const handleVerify = async (otp: string) => {
     setLoading(true);
     try {
-      await authService.verifyOtp(phoneNumber, otp);
+      const result = await authService.verifyOtp(phoneNumber, otp);
+      const { authToken, user } = result;
+      
+      const dispatch = require('../../app/store').store.dispatch;
+      const { setAuthToken, setAuthenticated } = require('../../app/store/slices/authSlice');
+      const { updateProfile } = require('../../app/store/slices/profileSlice');
+      
+      dispatch(setAuthToken(authToken));
+      dispatch(updateProfile({
+        name: user.name,
+        email: user.email,
+        accountNumber: user.accountNumber
+      }));
+      dispatch(setAuthenticated(true));
+      
       navigation.navigate('EmailEntry');
     } catch (error) {
       Toast.show({ type: 'error', text1: 'Error', text2: 'Incorrect OTP' });
@@ -76,7 +90,7 @@ const OTPVerifyScreen = ({ route, navigation }: any) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.bgLight, padding: 24, paddingTop: 80 },
-  title: { fontSize: 24, color: COLORS.navy, ...FONTS.semibold },
+  title: { ...FONTS.semibold, fontSize: 24, color: COLORS.navy },
   subtitle: { fontSize: 14, color: COLORS.textMuted, marginTop: 8, marginBottom: 40 },
   otpContainer: { width: '100%', marginBottom: 32 },
   otpBox: { width: 48, height: 56, backgroundColor: COLORS.bgGrey, borderRadius: 8, borderWidth: 0 },

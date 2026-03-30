@@ -33,7 +33,7 @@ const SplashScreen = ({ navigation }: any) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.navy, justifyContent: 'center', alignItems: 'center' },
-  logo: { fontSize: 48, color: '#FFF', ...FONTS.semibold },
+  logo: { ...FONTS.semibold, fontSize: 48, color: '#FFF' },
   tagline: { fontSize: 14, color: COLORS.blueLight, marginTop: 12, letterSpacing: 1.2 },
 });
 

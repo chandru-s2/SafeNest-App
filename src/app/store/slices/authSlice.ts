@@ -6,6 +6,7 @@ interface AuthState {
   biometricEnabled: boolean;
   useDevicePin: boolean;
   phoneNumber: string;
+  email: string;
   failedPinAttempts: number;
   lockoutUntil: number | null;
   captchaRequired: boolean;
@@ -18,6 +19,7 @@ const initialState: AuthState = {
   biometricEnabled: false,
   useDevicePin: false,
   phoneNumber: '',
+  email: '',
   failedPinAttempts: 0,
   lockoutUntil: null,
   captchaRequired: false,
@@ -42,6 +44,9 @@ const authSlice = createSlice({
     },
     setPhoneNumber: (state, action: PayloadAction<string>) => {
       state.phoneNumber = action.payload;
+    },
+    setEmail: (state, action: PayloadAction<string>) => {
+      state.email = action.payload;
     },
     incrementFailedAttempts: (state) => {
       state.failedPinAttempts += 1;
@@ -71,6 +76,7 @@ export const {
   setBiometricEnabled,
   setUseDevicePin,
   setPhoneNumber,
+  setEmail,
   incrementFailedAttempts,
   resetFailedAttempts,
   setLockout,

@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   },
   logo: { fontSize: 32, fontWeight: 'bold', color: '#FFF' },
   content: { padding: 24, marginTop: 20 },
-  title: { fontSize: 24, color: COLORS.navy, ...FONTS.semibold },
+  title: { ...FONTS.semibold, fontSize: 24, color: COLORS.navy },
   subtitle: { fontSize: 14, color: COLORS.textMuted, marginTop: 8, marginBottom: 32 },
   inputContainer: {
     flexDirection: 'row',

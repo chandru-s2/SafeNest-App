@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../app/store';
 import { COLORS, RADIUS } from '../../constants/theme';
 import Icon from 'react-native-vector-icons/Feather';
@@ -8,6 +8,29 @@ import Icon from 'react-native-vector-icons/Feather';
 const ComplaintsScreen = ({ navigation }: any) => {
   const { items } = useSelector((state: RootState) => state.complaints);
   const [activeTab, setActiveTab] = useState('All');
+  const dispatch = useDispatch();
+
+  const fetchComplaints = async () => {
+    try {
+      const api = require('../../services/api').default;
+      const { setComplaints, setLoading } = require('../../app/store/slices/complaintsSlice');
+      dispatch(setLoading(true));
+      const response = await api.get('complaints');
+      dispatch(setComplaints(response.data.complaints));
+    } catch (error) {
+      console.error('Failed to fetch complaints', error);
+    } finally {
+      const { setLoading } = require('../../app/store/slices/complaintsSlice');
+      dispatch(setLoading(false));
+    }
+  };
+
+  const { useFocusEffect } = require('@react-navigation/native');
+  useFocusEffect(
+    React.useCallback(() => {
+      fetchComplaints();
+    }, [])
+  );
 
   const filteredItems = items.filter(
     (item) => activeTab === 'All' || item.status === activeTab

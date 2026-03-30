@@ -13,6 +13,21 @@ const ProfileScreen = ({ navigation }: any) => {
   const dispatch = useDispatch();
   const profile = useSelector((state: RootState) => state.profile);
 
+  const fetchProfile = async () => {
+    try {
+      const api = require('../../services/api').default;
+      const { updateProfile } = require('../../app/store/slices/profileSlice');
+      const response = await api.get('/profile');
+      dispatch(updateProfile(response.data));
+    } catch (error) {
+      console.error('Failed to fetch profile', error);
+    }
+  };
+
+  React.useEffect(() => {
+    fetchProfile();
+  }, []);
+
   const handleLogout = async () => {
     await authService.logout();
     dispatch(logout());

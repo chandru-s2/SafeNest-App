@@ -10,6 +10,23 @@ const AlertsScreen = () => {
   const { items, riskScore, lastAnalyzed } = useSelector((state: RootState) => state.alerts);
   const [activeTab, setActiveTab] = useState('All');
   const [showFraudModal, setShowFraudModal] = useState(riskScore > 70);
+  const dispatch = require('react-redux').useDispatch();
+
+  const fetchAlerts = async () => {
+    try {
+      const api = require('../../services/api').default;
+      const { setAlerts, setRiskScore } = require('../../app/store/slices/alertsSlice');
+      const response = await api.get('alerts');
+      dispatch(setAlerts(response.data.items));
+      dispatch(setRiskScore(response.data.riskScore));
+    } catch (error) {
+      console.error('Failed to fetch alerts', error);
+    }
+  };
+
+  React.useEffect(() => {
+    fetchAlerts();
+  }, []);
 
   const getRiskColor = (score: number) => {
     if (score < 40) return COLORS.teal;
