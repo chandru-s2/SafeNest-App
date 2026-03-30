@@ -36,9 +36,15 @@ const HomeScreen = () => {
     try {
       const api = require('../../services/api').default;
       const { setBalance, setTransactions } = require('../../app/store/slices/dashboardSlice');
-      const response = await api.get('dashboard');
-      dispatch(setBalance(response.data.balance));
-      dispatch(setTransactions(response.data.transactions));
+
+      // Fetch balance and recent transactions in parallel
+      const [dashboardRes, recentRes] = await Promise.all([
+        api.get('dashboard'),
+        api.get('transactions/recent'),
+      ]);
+
+      dispatch(setBalance(dashboardRes.data.balance));
+      dispatch(setTransactions(recentRes.data.transactions));
     } catch (error) {
       console.error('Failed to fetch dashboard', error);
     }
@@ -65,6 +71,14 @@ const HomeScreen = () => {
     </TouchableOpacity>
   );
 
+  const EmptyTransactions = () => (
+    <View style={styles.emptyContainer}>
+      <MaterialIcons name="receipt-long" size={48} color={COLORS.textLight} />
+      <Text style={styles.emptyTitle}>No recent transactions</Text>
+      <Text style={styles.emptySubtitle}>Your recent activity will appear here</Text>
+    </View>
+  );
+
   return (
     <View style={styles.container}>
       <View style={styles.appBar}>
@@ -81,6 +95,7 @@ const HomeScreen = () => {
         data={transactions}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <TransactionItem item={item} />}
+        ListEmptyComponent={<EmptyTransactions />}
         ListHeaderComponent={
           <>
             <View style={styles.balanceCard}>
@@ -101,38 +116,44 @@ const HomeScreen = () => {
             </View>
 
             <View style={styles.actionsGrid}>
-              <QuickActionButton 
-                icon="send" 
-                label="Send" 
-                color={NEW_COLORS.Blue} 
-                onPress={() => navigation.navigate('SendMoney')} 
+              <QuickActionButton
+                icon="send"
+                label="Send"
+                color={NEW_COLORS.Blue}
+                onPress={() => navigation.navigate('SendMoney')}
               />
-              <QuickActionButton 
-                icon="call-received" 
-                label="Receive" 
-                color={NEW_COLORS.Teal} 
-                onPress={() => navigation.navigate('ReceiveMoney')} 
+              <QuickActionButton
+                icon="call-received"
+                label="Receive"
+                color={NEW_COLORS.Teal}
+                onPress={() => navigation.navigate('ReceiveMoney')}
               />
-              <QuickActionButton 
-                icon="qr-code-scanner" 
-                label="Scan QR" 
-                color={NEW_COLORS.Amber} 
-                onPress={() => navigation.navigate('QRScanner')} 
+              <QuickActionButton
+                icon="qr-code-scanner"
+                label="Scan QR"
+                color={NEW_COLORS.Amber}
+                onPress={() => navigation.navigate('QRScanner')}
               />
-              <QuickActionButton 
-                icon="apps" 
-                label="More" 
-                color={NEW_COLORS.Navy} 
-                onPress={() => setMoreSheetVisible(true)} 
+              <QuickActionButton
+                icon="apps"
+                label="More"
+                color={NEW_COLORS.Navy}
+                onPress={() => setMoreSheetVisible(true)}
               />
             </View>
 
-            <MoreServicesScreen 
-              visible={moreSheetVisible} 
-              onClose={() => setMoreSheetVisible(false)} 
+            <MoreServicesScreen
+              visible={moreSheetVisible}
+              onClose={() => setMoreSheetVisible(false)}
             />
 
-            <Text style={styles.sectionHeader}>Recent activity</Text>
+            <View style={styles.sectionHeaderRow}>
+              <Text style={styles.sectionHeader}>Recent activity</Text>
+              <TouchableOpacity onPress={() => navigation.navigate('Transactions' as any)}>
+                <Text style={styles.seeAll}>See all</Text>
+              </TouchableOpacity>
+            </View>
+
           </>
         }
         contentContainerStyle={styles.listContent}
@@ -194,8 +215,34 @@ const styles = StyleSheet.create({
     ...COLORS.shadow,
   },
   actionLabel: { fontSize: 11, color: COLORS.navy, fontWeight: '500' },
-  sectionHeader: { fontSize: 16, fontWeight: '600', color: COLORS.navy, marginHorizontal: 16, marginBottom: 12 },
+  sectionHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginHorizontal: 16,
+    marginBottom: 12,
+  },
+  sectionHeader: { fontSize: 16, fontWeight: '600', color: COLORS.navy },
+  seeAll: { fontSize: 13, fontWeight: '500', color: COLORS.blue },
   listContent: { paddingBottom: 100 },
+  emptyContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 48,
+    paddingHorizontal: 32,
+  },
+  emptyTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: COLORS.textPrimary,
+    marginTop: 16,
+    marginBottom: 6,
+  },
+  emptySubtitle: {
+    fontSize: 13,
+    color: COLORS.textLight,
+    textAlign: 'center',
+  },
 });
 
 export default HomeScreen;
