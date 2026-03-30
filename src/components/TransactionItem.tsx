@@ -12,8 +12,25 @@ interface TransactionItemProps {
     merchant: string;
     ts: string;
     status: string;
+    category?: string;
+    referenceId?: string;
   };
 }
+
+const getCategoryIcon = (category?: string, type?: string) => {
+  if (type === 'credit') return 'arrow-down-left';
+  switch (category) {
+    case 'Food': return 'coffee';
+    case 'Shopping': return 'shopping-bag';
+    case 'Transfer': return 'send';
+    case 'Bills': return 'file-text';
+    case 'ATM': return 'credit-card';
+    case 'Medical': return 'activity';
+    case 'Travel': return 'navigation';
+    case 'Entertainment': return 'film';
+    default: return 'shopping-cart';
+  }
+};
 
 const TransactionItem: React.FC<TransactionItemProps> = ({ item }) => {
   const isDebit = item.type === 'debit';
@@ -22,7 +39,7 @@ const TransactionItem: React.FC<TransactionItemProps> = ({ item }) => {
     <View style={styles.container}>
       <View style={styles.left}>
         <View style={[styles.iconBox, { backgroundColor: isDebit ? COLORS.bgGrey : COLORS.blue + '10' }]}>
-          <Icon name={isDebit ? "shopping-cart" : "arrow-down-left"} size={20} color={isDebit ? COLORS.textPrimary : COLORS.blue} />
+          <Icon name={getCategoryIcon(item.category, item.type)} size={20} color={isDebit ? COLORS.textPrimary : COLORS.blue} />
         </View>
         <View>
           <Text style={styles.merchant}>{item.merchant}</Text>
@@ -33,7 +50,12 @@ const TransactionItem: React.FC<TransactionItemProps> = ({ item }) => {
         <Text style={[styles.amount, { color: isDebit ? COLORS.textPrimary : COLORS.success }]}>
           {isDebit ? '-' : '+'}{formatCurrency(item.amount)}
         </Text>
-        <Text style={styles.status}>{item.status}</Text>
+        <Text style={[
+          styles.status,
+          item.status === 'failed' && { color: '#E53935' },
+          item.status === 'pending' && { color: '#F59E0B' },
+          item.status === 'completed' && { color: '#4CAF50' }
+        ]}>{item.status}</Text>
       </View>
     </View>
   );

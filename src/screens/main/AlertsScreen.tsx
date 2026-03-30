@@ -17,6 +17,7 @@ const AlertsScreen = () => {
       const api = require('../../services/api').default;
       const { setAlerts, setRiskScore } = require('../../app/store/slices/alertsSlice');
       const response = await api.get('alerts');
+      console.log('DEBUG: Alerts Response:', JSON.stringify(response.data.items));
       dispatch(setAlerts(response.data.items));
       dispatch(setRiskScore(response.data.riskScore));
     } catch (error) {

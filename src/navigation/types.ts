@@ -12,4 +12,5 @@ export type MainStackParamList = {
   };
   ReceiveMoney: undefined;
   QRScanner: undefined;
+  Transactions: undefined;
 };

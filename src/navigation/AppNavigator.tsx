@@ -11,6 +11,7 @@ import SendMoneyScreen from '../screens/main/SendMoneyScreen';
 import StripePaymentScreen from '../screens/main/StripePaymentScreen';
 import ReceiveMoneyScreen from '../screens/main/ReceiveMoneyScreen';
 import QRScannerScreen from '../screens/main/QRScannerScreen';
+import TransactionsScreen from '../screens/main/TransactionsScreen';
 
 const Stack = createStackNavigator();
 
@@ -33,6 +34,7 @@ const AppNavigator = () => {
             <Stack.Screen name="StripePayment" component={StripePaymentScreen} />
             <Stack.Screen name="ReceiveMoney" component={ReceiveMoneyScreen} />
             <Stack.Screen name="QRScanner" component={QRScannerScreen} />
+            <Stack.Screen name="Transactions" component={TransactionsScreen} />
           </Stack.Group>
         )}
       </Stack.Navigator>

@@ -7,6 +7,9 @@ interface Transaction {
   merchant: string;
   ts: string;
   status: string;
+  category?: string;
+  referenceId?: string;
+  accountType?: string;
 }
 
 interface DashboardState {

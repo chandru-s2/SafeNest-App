@@ -2,8 +2,9 @@ import axios from 'axios';
 import { store } from '../app/store';
 import { logout } from '../app/store/slices/authSlice';
 
-// Android emulator links to host machine localhost via 10.0.2.2
-const API_URL = 'http://10.0.2.2:3000/v1/';
+// For local Android Emulator testing, you can swap this to: 'http://10.0.2.2:3000/v1/'
+// For Physical Devices (like your Infinix) use your actual network IP or the Render deployment below.
+const API_URL = 'http://10.94.67.105:3000/v1/';
 
 const api = axios.create({
   baseURL: API_URL,

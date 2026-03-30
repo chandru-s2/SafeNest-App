@@ -16,6 +16,7 @@ const ComplaintsScreen = ({ navigation }: any) => {
       const { setComplaints, setLoading } = require('../../app/store/slices/complaintsSlice');
       dispatch(setLoading(true));
       const response = await api.get('complaints');
+      console.log('DEBUG: Complaints Response:', JSON.stringify(response.data.complaints));
       dispatch(setComplaints(response.data.complaints));
     } catch (error) {
       console.error('Failed to fetch complaints', error);

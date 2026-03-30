@@ -37,16 +37,35 @@ const HomeScreen = () => {
       const api = require('../../services/api').default;
       const { setBalance, setTransactions } = require('../../app/store/slices/dashboardSlice');
 
-      // Fetch balance and recent transactions in parallel
-      const [dashboardRes, recentRes] = await Promise.all([
-        api.get('dashboard'),
-        api.get('transactions/recent'),
-      ]);
+      try {
+        const dashboardRes = await api.get('dashboard');
+        if (dashboardRes.data?.balance !== undefined) {
+          dispatch(setBalance(dashboardRes.data.balance));
+        }
+      } catch (e) {
+        console.warn('Dashboard fetch failed', e);
+      }
 
-      dispatch(setBalance(dashboardRes.data.balance));
-      dispatch(setTransactions(recentRes.data.transactions));
+      try {
+        const recentRes = await api.get('transactions/recent');
+        console.log("Transactions data payload:", JSON.stringify(recentRes.data));
+        
+        let txns = recentRes.data.transactions;
+        if (!txns && recentRes.data.data?.transactions) {
+          txns = recentRes.data.data.transactions;
+        }
+
+        if (Array.isArray(txns)) {
+          dispatch(setTransactions(txns));
+        } else {
+          console.warn("Could not extract transactions array:", recentRes.data);
+          dispatch(setTransactions([]));
+        }
+      } catch (e) {
+        console.warn('Recent transactions fetch failed', e);
+      }
     } catch (error) {
-      console.error('Failed to fetch dashboard', error);
+      console.error('Failed to fetch dashboard wrapper', error);
     }
   };
 
@@ -149,7 +168,7 @@ const HomeScreen = () => {
 
             <View style={styles.sectionHeaderRow}>
               <Text style={styles.sectionHeader}>Recent activity</Text>
-              <TouchableOpacity onPress={() => navigation.navigate('Transactions' as any)}>
+              <TouchableOpacity onPress={() => navigation.navigate('Transactions')}>
                 <Text style={styles.seeAll}>See all</Text>
               </TouchableOpacity>
             </View>
